@@ -2,7 +2,7 @@ from socket import *
 #import directions
 
 # Set server port for the socket
-serverPort = 25570
+serverPort = 25571
 
 # dictionary of commands that map to functions
 commandToFunction = {
@@ -46,7 +46,7 @@ try:
         print(direction)
 
         # if the command is recognized execute the command
-        if commandToFunction.hasKey(direction):
+        if direction in commandToFunction:
             exec(commandToFunction[direction])
         else:
              pass
