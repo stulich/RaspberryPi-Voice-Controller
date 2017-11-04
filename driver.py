@@ -1,5 +1,5 @@
 from socket import *
-#import directions
+import directions
 
 # Set server port for the socket
 serverPort = 25571
