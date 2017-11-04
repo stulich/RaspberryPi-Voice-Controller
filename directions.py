@@ -17,32 +17,32 @@ GPIO.setup(right1, GPIO.OUT)
 GPIO.setup(right2, GPIO.OUT)
 
 #direction to go forward
-def goFoward():
-    GPIO.output(left1, True)
-    GPIO.output(left2, False)
-    GPIO.output(right1, True)
-    GPIO.output(right2, False)
+def goForward():
+    GPIO.output(left1, False)
+    GPIO.output(left2, True)
+    GPIO.output(right1, False)
+    GPIO.output(right2, True)
 
 #direction to go backward
 def goBackward():
-    GPIO.output(left1, False)
-    GPIO.output(left2, True)
-    GPIO.output(right1, False)
-    GPIO.output(right2, True)
-
-#direction to turn left
-def turnLeft():
-    GPIO.output(left1, False)
-    GPIO.output(left2, True)
+    GPIO.output(left1, True)
+    GPIO.output(left2, False)
     GPIO.output(right1, True)
     GPIO.output(right2, False)
 
-#direction to turn right
-def turnRight():
+#direction to turn left
+def turnLeft():
     GPIO.output(left1, True)
     GPIO.output(left2, False)
     GPIO.output(right1, False)
     GPIO.output(right2, True)
+
+#direction to turn right
+def turnRight():
+    GPIO.output(left1, False)
+    GPIO.output(left2, True)
+    GPIO.output(right1, True)
+    GPIO.output(right2, False)
 
 #direction to stop
 def stop():
