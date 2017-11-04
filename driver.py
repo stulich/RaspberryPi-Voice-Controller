@@ -16,6 +16,7 @@ commandToFunction = {
     'turn left': 'directions.turnLeft()',
     'left': 'directions.turnLeft()',
     'go left': 'directions.turnLeft()',
+    'stop':'directions.stop()',
 }
 
 # Create a server socket
