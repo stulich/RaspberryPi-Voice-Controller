@@ -7,6 +7,9 @@ left2=13
 right1=19
 right2=26
 
+#set pin output mode
+GPIO.setmode(GPIO.BCM)
+
 #set up pins
 GPIO.setup(left1, GPIO.OUT)
 GPIO.setup(left2, GPIO.OUT)

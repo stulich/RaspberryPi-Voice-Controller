@@ -5,6 +5,9 @@ greenLed=21
 yellowLed=20
 redLed=16
 
+#set pin output mode
+GPIO.setmode(GPIO.BCM)
+
 #sets up the different pins as outputs
 GPIO.setup(greenLed, GPIO.OUT)
 GPIO.setup(yellowLed, GPIO.OUT)
