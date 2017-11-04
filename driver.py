@@ -49,6 +49,6 @@ except:
 
 #closes socket at end
 finally:
-    socket.close()
+    serverSocket.close()
 
 
