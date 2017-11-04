@@ -41,8 +41,14 @@ try:
 
         # else pass
         else:
-            pass
+             pass
+
+#if error occurs
 except:
     print('An error has occured')
+
+#closes socket at end
+finally:
+    socket.close()
 
 
