@@ -5,7 +5,7 @@ import directions
 serverPort = 25565
 
 # Create a server socket
-serverSocket = socket.socket(AF_INET, SOCK_STREAM)
+serverSocket = socket(AF_INET, SOCK_STREAM)
 
 # "bind" the socket to the localhost and server port.
 serverSocket.bind(("", serverPort))
