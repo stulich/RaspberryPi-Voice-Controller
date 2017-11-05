@@ -74,9 +74,7 @@ def explore():
         continue
 
     # if in front there is an obstacle, turn right, check again
-    turnRight()
-    time.sleep(ninety_deg_turn)
-    stop()
+    slow_turn(True)
     print ('checking right')
 
     if getForwardDistance() > turn_distance:
@@ -87,7 +85,8 @@ def explore():
 
         # if to the right is also covered, turn all the way around and check original left
         # if its clear go back to explore
-        turnLeft()
+        slow_turn(False)
+        slow_turn(False)
         time.sleep(ninety_deg_turn*2)
         if getForwardDistance() > turn_distance:
             print ('going original left')
@@ -95,9 +94,21 @@ def explore():
         else:
             print ('turning all the way around')
 
-            turnLeft()
-            time.sleep(ninety_deg_turn)
+            slow_turn(False)
             explore()
+
+def slow_turn(direction):
+    i=0
+    if direction==True:
+        for i in range(5):
+            turnRight()
+            time.sleep(.05)
+            stop()
+    else:
+        for i in range(5):
+            turnLeft()
+            time.sleep(.05)
+            stop()
 
 def control_lights():
     while 1:
