@@ -33,13 +33,13 @@ serverSocket.listen(5)
 try:
     print('waiting for new connection')
     # creates new thread to monitor distance in front of the machine
-    # directions.start_led_controller()
+    thread.start_new_thread(directions.start_led_controller)
+
     #runs loop to constantly monitor for input
     while 1:
 
         # Accepts a new connection. addr is the address of the incoming connection
         Socket_connection, addr = serverSocket.accept()
-        print('connected')
 
         # direction received over the buffer which is string containing command
         direction = Socket_connection.recv(1024)
@@ -49,7 +49,7 @@ try:
         direction = direction[2:].lstrip(' ')
         print(direction)
         if direction.lower() == 'explore':
-            thread.start_new_thread(directions.explore())
+            thread.start_new_thread(directions.explore)
         # if the command is recognized execute the command
         if direction in commandToFunction:
             exec(commandToFunction[direction])
