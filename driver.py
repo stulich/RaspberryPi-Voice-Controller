@@ -36,7 +36,8 @@ serverSocket.listen(5)
 try:
     print('waiting for new connection')
     # creates new thread to monitor distance in front of the machine
-    thread.start_new_thread(directions.start_led_controller)
+    t = thread(directions.start_led_controller)
+    t.start()
 
     #runs loop to constantly monitor for input
     while 1:
@@ -63,7 +64,8 @@ try:
 except KeyboardInterrupt as c:
     print(c)
     serverSocket.close()
-    robot.stop()
+    directions.stop()
+    t.join()
     exit()
 
 #closes socket at end
