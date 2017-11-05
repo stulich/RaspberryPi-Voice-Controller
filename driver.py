@@ -18,6 +18,9 @@ commandToFunction = {
     'left': 'directions.turnLeft()',
     'go left': 'directions.turnLeft()',
     'stop':'directions.stop()',
+    'full send':'directions.explore()',
+    'Explorer':'directions.explore()',
+    'explore':'directions.explore()',
 }
 
 # Create a server socket
@@ -60,6 +63,8 @@ try:
 except KeyboardInterrupt as c:
     print(c)
     serverSocket.close()
+    robot.stop()
+    exit()
 
 #closes socket at end
 finally:
