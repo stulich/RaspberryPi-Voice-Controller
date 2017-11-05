@@ -1,5 +1,7 @@
 import RPi.GPIO as GPIO
 from distance_monitor import *
+import led_controller
+import thread
 
 #when to turn away from an object that is sensed, in meters
 turn_distance = .5
@@ -96,3 +98,16 @@ def explore():
             turnLeft()
             time.sleep(ninety_deg_turn)
             explore()
+
+def control_lights():
+    while 1:
+        d = getForwardDistance()
+        if d < turn_distance:
+            led_controller.setRed(True)
+        elif d < 2*turn_distance:
+            led_controller.setYellow(True)
+        else:
+            led_controller.setGreen(True)
+
+def start_led_controller():
+    thread.start_new_thread( control_lights())

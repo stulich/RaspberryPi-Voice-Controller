@@ -31,9 +31,10 @@ serverSocket.listen(5)
 
 try:
     print('waiting for new connection')
-
+    start_led_controller()
     #runs loop to constantly monitor for input
     while 1:
+
         # Accepts a new connection. addr is the address of the incoming connection
         Socket_connection, addr = serverSocket.accept()
         print('connected')
