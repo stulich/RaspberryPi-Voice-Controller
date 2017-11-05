@@ -69,19 +69,15 @@ def explore():
 
     goForward()
     while getForwardDistance() > turn_distance:
-        print ('forward')
         # if it is move forward and turn green light on
         continue
 
     # if in front there is an obstacle, turn right, check again
     slow_turn(True)
-    print ('checking right')
 
     if getForwardDistance() > turn_distance:
-        print ('check passed ,')
         explore()
     else:
-        print ('check failed')
 
         # if to the right is also covered, turn all the way around and check original left
         # if its clear go back to explore
@@ -89,10 +85,8 @@ def explore():
         slow_turn(False)
         time.sleep(ninety_deg_turn*2)
         if getForwardDistance() > turn_distance:
-            print ('going original left')
             explore()
         else:
-            print ('turning all the way around')
 
             slow_turn(False)
             explore()
