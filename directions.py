@@ -67,17 +67,17 @@ def stop():
 def explore():
     #check if distance is okay to move forward
 
-    goForward()
+    goBackward()
 
 
-    while getForwardDistance() > turn_distance:
+    while getBackwardDistance() > turn_distance:
         # if it is move forward and turn green light on
         continue
 
     # if in front there is an obstacle, turn right, check again
     slow_turn(True)
 
-    if getForwardDistance() > turn_distance:
+    if getBackwardDistance() > turn_distance:
         explore()
     else:
 
@@ -86,7 +86,7 @@ def explore():
         slow_turn(False)
         slow_turn(False)
         time.sleep(ninety_deg_turn*2)
-        if getForwardDistance() > turn_distance:
+        if getBackwardDistance() > turn_distance:
             explore()
         else:
 
