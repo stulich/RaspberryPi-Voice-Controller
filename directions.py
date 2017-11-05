@@ -111,3 +111,5 @@ def control_lights():
 
 def start_led_controller():
     thread.start_new_thread( control_lights())
+
+start_led_controller()

@@ -1,5 +1,6 @@
 from socket import *
 import directions
+import thread
 
 # Set server port for the socket
 serverPort = 25571
@@ -31,7 +32,8 @@ serverSocket.listen(5)
 
 try:
     print('waiting for new connection')
-    start_led_controller()
+    # creates new thread to monitor distance in front of the machine
+    # directions.start_led_controller()
     #runs loop to constantly monitor for input
     while 1:
 
@@ -46,7 +48,8 @@ try:
         #splices direction to remove encoding
         direction = direction[2:].lstrip(' ')
         print(direction)
-
+        if direction.lower() == 'explore':
+            thread.start_new_thread(directions.explore())
         # if the command is recognized execute the command
         if direction in commandToFunction:
             exec(commandToFunction[direction])
