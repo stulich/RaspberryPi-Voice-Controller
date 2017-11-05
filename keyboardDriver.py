@@ -1,8 +1,9 @@
 import curses
 import directions as robot
 import thread
+
 def driver(win):
-    thread.start_new_thread(directions.start_led_controller)
+    thread.start_new_thread(robot.start_led_controller)
 
     win.nodelay(True)
     key=""
