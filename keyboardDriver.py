@@ -3,7 +3,7 @@ import directions as robot
 import thread
 
 def driver(win):
-    t = thread(robot.start_led_controller)
+    t = thread.Thread(target = robot.start_led_controller)
     t.start()
     win.nodelay(True)
     key=""
