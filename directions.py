@@ -68,10 +68,7 @@ def explore():
     #check if distance is okay to move forward
 
     goForward()
-    time.sleep(.3)
-    turnRight()
-    time.sleep(.05)
-    stop()
+
 
     while getForwardDistance() > turn_distance:
         # if it is move forward and turn green light on
