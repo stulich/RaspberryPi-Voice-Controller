@@ -26,6 +26,7 @@ GPIO.setup(echoBackward, GPIO.IN)
 
 #gets the distance between the sensor and closest object in front of it
 def getForwardDistance():
+
     #turns sensor on and off and measures distance between itself and wall
     GPIO.output(triggerForward,1)
     time.sleep(0.00001)

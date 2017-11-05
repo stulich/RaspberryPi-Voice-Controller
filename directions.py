@@ -1,4 +1,11 @@
 import RPi.GPIO as GPIO
+from distance_monitor import *
+
+#when to turn away from an object that is sensed, in meters
+turn_distance = .5
+# seconds it takes to turn 90 degrees
+ninety_deg_turn= .3
+
 
 #left and right motor both have two controls
 #set motors to different pins
@@ -51,16 +58,41 @@ def stop():
     GPIO.output(right1, False)
     GPIO.output(right2, False)
 
+#switch variables to not check same directions too much
+
+
 #sends robot to randomly explore, working with the ultrasonic radar to see if it is too close to walls
 def explore():
     #check if distance is okay to move forward
 
-        #if it is move forward and turn green light on
+    goForward()
+    while getForwardDistance() > turn_distance:
+        print ('forward')
+        # if it is move forward and turn green light on
+        continue
 
-        #else turn left and check if it is okay to move forward
-        #if it is turn go forward
+    # if in front there is an obstacle, turn right, check again
+    turnRight()
+    time.sleep(ninety_deg_turn)
+    stop()
+    print ('checking right')
 
-        #else turn around completely so you are now right to where you started
+    if getForwardDistance() > turn_distance:
+        print ('check passed ,')
+        explore()
+    else:
+        print ('check failed')
 
-        #check if it is okay to travel forward else turn right 90 degrees so you are facing opposite direction of where you started
-    pass
+        # if to the right is also covered, turn all the way around and check original left
+        # if its clear go back to explore
+        turnLeft()
+        time.sleep(ninety_deg_turn*2)
+        if getForwardDistance() > turn_distance:
+            print ('going original left')
+            explore()
+        else:
+            print ('turning all the way around')
+
+            turnLeft()
+            time.sleep(ninety_deg_turn)
+            explore()
