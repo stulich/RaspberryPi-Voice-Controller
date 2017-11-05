@@ -27,6 +27,8 @@ def driver(win):
                 robot.turnLeft()
             if key == 261:
                 robot.turnRight()
+            if key == 101:
+                robot.explore()
         except Exception as e:
             pass
 
