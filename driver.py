@@ -52,8 +52,7 @@ try:
         #splices direction to remove encoding
         direction = direction[2:].lstrip(' ')
         print(direction)
-        if direction.lower() == 'explore':
-            directions.explore()
+
         # if the command is recognized execute the command
         if direction in commandToFunction:
             exec(commandToFunction[direction])
