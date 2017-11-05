@@ -53,7 +53,7 @@ try:
         direction = direction[2:].lstrip(' ')
         print(direction)
         if direction.lower() == 'explore':
-            thread.start_new_thread(directions.explore)
+            directions.explore()
         # if the command is recognized execute the command
         if direction in commandToFunction:
             exec(commandToFunction[direction])
