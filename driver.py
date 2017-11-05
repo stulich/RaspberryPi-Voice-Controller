@@ -65,7 +65,7 @@ except KeyboardInterrupt as c:
     print(c)
     serverSocket.close()
     directions.stop()
-    t.join()
+    # t.join()
     exit()
 
 #closes socket at end
