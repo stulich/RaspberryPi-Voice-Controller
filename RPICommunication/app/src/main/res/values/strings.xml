@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RPICommunication</string>
+    <string name="new_title">Send Instructions to Raspberry Pi</string>
+    <string name="button_value">Click Here To Record Input</string>
+    <string name="greeting">Click the button to begin listening for commands.</string>
+    <string name="empty"></string>
+    <string name="send_button_value">Send to RPi!</string>
+</resources>
