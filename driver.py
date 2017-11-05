@@ -1,6 +1,6 @@
 from socket import *
 import directions
-import thread
+import threading
 
 # Set server port for the socket
 serverPort = 25571
@@ -36,7 +36,7 @@ serverSocket.listen(5)
 try:
     print('waiting for new connection')
     # creates new thread to monitor distance in front of the machine
-    t = thread.Thread(target = directions.start_led_controller)
+    t = threading.Thread(target = directions.start_led_controller)
     t.start()
 
     #runs loop to constantly monitor for input
