@@ -3,16 +3,16 @@ import RPi.GPIO as GPIO
 import time
 
 #set pin boards to output mode
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 
 #assign raspberry pi pins for pins on ultrasonic sensor
 #forward sensors pins
-triggerForward=11
-echoForward=15
+triggerForward=17
+echoForward=22
 
 #backward sensors pins
-triggerBackward=12
-echoBackward=16
+triggerBackward=18
+echoBackward=23
 
 #set trigger pins as outputs
 GPIO.setup(triggerForward, GPIO.OUT)
