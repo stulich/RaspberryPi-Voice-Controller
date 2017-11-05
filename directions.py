@@ -68,6 +68,8 @@ def explore():
     #check if distance is okay to move forward
 
     goForward()
+
+
     while getForwardDistance() > turn_distance:
         # if it is move forward and turn green light on
         continue

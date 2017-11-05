@@ -32,8 +32,9 @@ def driver(win):
                 robot.turnRight()
             if key == 101:
                 robot.explore()
-        except Exception as e:
-            pass
+        except KeyboardInterrupt as e:
+            robot.stop()
+            exit()
 
 curses.wrapper(driver)
 
