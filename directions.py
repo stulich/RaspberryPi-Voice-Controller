@@ -101,6 +101,11 @@ def explore():
 
 def control_lights():
     while 1:
+        time.sleep(.1)
+        led_controller.setGreen(False)
+        led_controller.setRed(False)
+        led_controller.setYellow(False)
+
         d = getForwardDistance()
         if d < turn_distance:
             led_controller.setRed(True)
